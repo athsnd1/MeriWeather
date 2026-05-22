@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeriWeather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icons/cloud-sun-solid.png">
+    <script src="https://kit.fontawesome.com/4e693a4d1d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <i class="fa-solid fa-cloud-sun"></i> <p>MeriWeather</p>
+        </nav>
+    </header>
+    
+    <main>
+        <form>
+            <h1 class="h1" id="h1-city-file">Enter a City name to get weather data</h1>
+
+            <div class="input-container">
+                <input type="text" placeholder="Enter a city of your choice" id="city-input">
+                <a href="/weather.html" id="get-data-btn">Get Data</a>
+            </div>
+        </form>
+    </main>
+
+    <script src="city.js"></script>
+</body>
+</html>

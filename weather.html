@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeriWeather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icons/cloud-sun-solid.png">
+    <script src="https://kit.fontawesome.com/4e693a4d1d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <i class="fa-solid fa-cloud-sun"></i><p>MeriWeather</p>
+        </nav>
+    </header>
+
+    <h1 class="h1" id="main-h1"> <i class="fa-solid fa-location-dot jump" id="location-pin"></i> <span id="location-text">Location </span></h1>
+
+    <h2 id="date-area">Monday, January 21st 2023 | 00:00:00</h2>
+
+    <div id="weather-report-area">
+        <p id="degrees"></p>
+        <div id="under-area">
+            <span id="weather-icon"></span>
+            <span id="description"></span>
+        </div>
+    </div>
+
+    <div id="metrics-area">
+        <span id="precipitation" class="span-elements">
+            <span id="precip-icon"> <i class="fa-solid fa-umbrella"></i></span>
+
+            <span id="precip-percent" class="span-text"></span>
+
+            <span style="color:rgba(94, 109, 192, 0.562); font-weight: bold;">Precipitation</span>
+        </span>
+
+        <span id="humidity" class="span-elements">
+            <span id="humidity-icon"><i class="fa-solid fa-droplet"></i></span>
+
+            <span id="humidity-percent" class="span-text"></span>
+
+            <span style="color:rgba(94, 109, 192, 0.562); font-weight: bold;">Humidity</span></span>
+
+        <span id="wind-speed" class="span-elements">
+            <span id="speed-icon"><i class="fa-solid fa-wind"></i></span>
+
+            <span id="speed-percent" class="span-text"></span>
+
+            <span style="color:rgba(94, 109, 192, 0.562); font-weight: bold;">Wind Speed</span>
+
+        </span>
+
+    </div>
+
+    <div class="above-hourly">
+        <p>Today</p> 
+        <a href="" id="7-day-link">
+            7-day Forecasts
+        </a>
+        <span id="arrow"> → </span>
+    </div>
+
+    <div id="hourly-forecasts-area">
+
+        <!-- <div class="hourly-forecast">
+            <span id="hour"> 9:00am</span>
+            <span id="icon"> </span>
+            <span id="deg">22ºC</span>
+        </div> -->
+
+    </div>
+    
+
+    <script src="weather.js"></script>
+</body>
+</html>
