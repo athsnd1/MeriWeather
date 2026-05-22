@@ -57,7 +57,6 @@ getBtn.addEventListener("click", async (e) => {
         window.location.href = "weather.html";
 
     } catch (error) {
-        console.error(error);
         errorArea.textContent = error.message || "An unexpected error occurred.";
         errorArea.classList.add("visible");
 

@@ -35,8 +35,8 @@ nav p{
     border-left:8px solid red;
     height:50px;
     max-height: max-content;
-    width:400px;
-    max-width: 40ch;
+    width:300px;
+    max-width: 30ch;
     margin: 1rem auto;
     opacity:0;
     text-align: center;
@@ -290,6 +290,11 @@ h1 .fa-solid.fa-location-dot{
     #metrics-area{
         min-width:200px;
         width:fit-content;
+    }
+
+    .error-notification{
+        width:250px;
+        max-width: 30ch;
     }
 }
 
