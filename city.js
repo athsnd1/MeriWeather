@@ -22,7 +22,7 @@ async function getCordinates(city){
         };
 
     } catch (error) {
-        console.log(error);
+        throw error;
     }
 }
 
@@ -31,39 +31,15 @@ getBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const city = cityInput.value.trim().toLowerCase();
+    
+    errorArea.classList.remove("visible");
+    errorArea.textContent = "";
 
-    try{
-        localStorage.setItem("city", city);
-
-        const coordinates = await getCordinates(city);
-
-        localStorage.setItem("coordinates", JSON.stringify(coordinates));
-
-        const show = handleClick(city);
-
-        if(show) window.location.href = "weather.html";
-
-    }catch(error){
-        errorArea.textContent = `${error}`;
-        errorArea.classList.add("visible");
-
-        setTimeout(() => {
-            errorArea.classList.remove("visible");
-        }, 4000);
-    }
-});
-
-function handleClick(city){
-
-    if(!city){
+    if (!city) {
         errorArea.textContent = "Please enter a city to generate weather data!";
         errorArea.classList.add("visible");
-
-        setTimeout(() => {
-            errorArea.classList.remove("visible");
-        }, 4000);
-
-        return false;
+        setTimeout(() => errorArea.classList.remove("visible"), 4000);
+        return;
     }
 
     getBtn.disabled = true;
@@ -71,5 +47,33 @@ function handleClick(city){
     getBtn.style.cursor = "wait";
     cityInput.disabled = true;
 
-    return true;
+    try {
+        localStorage.setItem("city", city);
+
+        const coordinates = await getCordinates(city);
+
+        localStorage.setItem("coordinates", JSON.stringify(coordinates));
+
+        window.location.href = "weather.html";
+
+    } catch (error) {
+        console.error(error);
+        errorArea.textContent = error.message || "An unexpected error occurred.";
+        errorArea.classList.add("visible");
+
+        setTimeout(() => {
+            errorArea.classList.remove("visible");
+        }, 4000);
+
+    } finally {
+        resetButtonState();
+    }
+});
+
+function resetButtonState() {
+    getBtn.disabled = false;
+    getBtn.textContent = "Get Data"; 
+    getBtn.style.cursor = "pointer";
+    cityInput.disabled = false;
+    cityInput.focus();
 }
